@@ -90,8 +90,8 @@ def send_to_telegram(messages):
     if "TELEGRAM_BOT_TOKEN" in os.environ and "TELEGRAM_CHAT_ID" in os.environ:
         bot_token = os.environ["TELEGRAM_BOT_TOKEN"]
         chat_id = os.environ["TELEGRAM_CHAT_ID"]
-        text = "\n———————————————————————————\n".join(messages)  # Join the messages with separator
-        formatted_message = f"*🚀 [ikuuu] 签到完成*\n\n```\n{text}\n```"  # 使用Markdown格式
+        text = "\n—————————————————————\n".join(messages)  # Join the messages with separator
+        formatted_message = f"*🚀 [ikuuu] 签到完成*\n\n\n{text}\n"  # 使用Markdown格式
         url = f"https://api.telegram.org/bot{bot_token}/sendMessage"
         data = {
             "chat_id": chat_id,
