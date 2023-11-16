@@ -137,7 +137,7 @@ def sign_in(driver):
         total_need = total_need.split("您升级到此用户组还需积分")[1].strip()
 
         text = f"签到软妹币:  {rmb}\n软妹币总数:  {total_rmb}\n连续签到:    {lianxudays}天\n———————————————————————————\n当前头衔:  {touxian}\n总积分:  {total_jifen}\n升级剩余积分:  {total_need}"
-        message = f"*😈 [moxing论坛]  {sign_flag}*\n\n```\n{text}\n```"
+        message = f"*😈 [moxing论坛]  {sign_flag}*\n\n\n{text}\n"
     
     except Exception as e:
         # 处理异常情况，可以根据具体需求添加适当的处理逻辑
