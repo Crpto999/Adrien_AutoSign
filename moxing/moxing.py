@@ -76,7 +76,6 @@ def login(driver):
         print(f"登录时发生异常: {str(e)}")
         return False
 
-
 def sign_in(driver):
     # 等待页面加载完成
     global sign_flag, message
