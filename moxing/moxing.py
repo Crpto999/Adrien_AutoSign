@@ -26,7 +26,6 @@ def get_captcha(driver):
     # send_image_to_telegram('result.png')
     # send_image_to_telegram('pic.png')
 
-    
     # 初始化 DDDDORC 实例
     ocr = ddddocr.DdddOcr()
     # 识别验证码图片中的字符
