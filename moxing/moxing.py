@@ -124,6 +124,7 @@ def sign_in(driver):
         touxian_xpath = "/html/body/div/div[2]/div[1]/div/div[1]/table[2]/tbody[3]/tr/th"
         touxian_element = wait.until(EC.presence_of_element_located((By.XPATH, touxian_xpath)))
         touxian = touxian_element.text
+        
         # 获取总积分
         total_jifen_xpath = "/html/body/div/div[2]/div[1]/div/div[1]/table[2]/tbody[1]/tr[2]/th/span"
         total_jifen_element = wait.until(EC.presence_of_element_located((By.XPATH, total_jifen_xpath)))
