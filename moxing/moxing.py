@@ -62,6 +62,7 @@ def login(driver):
         driver.execute_script("arguments[0].click();", login_button)
         time.sleep(20)
 
+        
         # 检查登录按钮是否仍然存在
         if not driver.find_elements(By.NAME, "loginsubmit"):
             # 登录按钮不存在，登录成功
