@@ -31,13 +31,21 @@ jobs:
         pip install Pillow==9.5.0
         pip install selenium
 
-    - name: Install Chromedriver
+    - name: Install Chrome and Chromedriver
       run: |
-        CHROMEDRIVER_VERSION=$(curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE)
-        wget https://chromedriver.storage.googleapis.com/${CHROMEDRIVER_VERSION}/chromedriver_linux64.zip
-        unzip chromedriver_linux64.zip
-        sudo mv chromedriver /usr/local/bin/chromedriver
-        sudo chmod +x /usr/local/bin/chromedriver
+        # Install Chrome.
+        sudo apt-get update
+        sudo apt-get install -y google-chrome-stable
+        # Get Chrome version.
+        CHROME_VERSION=$(google-chrome --version | grep -oP '\d+\.\d+\.\d+\.\d+')
+        # Use Chrome version to download corresponding Chromedriver.
+        CHROMEDRIVER_VERSION=$(curl -s "https://chromedriver.storage.googleapis.com/LATEST_RELEASE_$CHROME_VERSION")
+        wget -N "https://chromedriver.storage.googleapis.com/${CHROMEDRIVER_VERSION}/chromedriver_linux64.zip" -P ~/
+        unzip ~/chromedriver_linux64.zip -d ~/
+        sudo mv -f ~/chromedriver /usr/local/bin/chromedriver
+        sudo chown root:root /usr/local/bin/chromedriver
+        sudo chmod 0755 /usr/local/bin/chromedriver
+
     - run: |
         export DISPLAY=:99
         chromedriver --url-base=/wd/hub &
