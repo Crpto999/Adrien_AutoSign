@@ -12,7 +12,7 @@ def save_img(src, img_path):
     img = requests.get(src)
     with open(img_path, "wb") as f:
         f.write(img.content)
-
+        
 def get_captcha(driver):
     driver.save_screenshot('pic.png')
     pic = Image.open('pic.png')
@@ -26,7 +26,6 @@ def get_captcha(driver):
     # send_image_to_telegram('result.png')
     # send_image_to_telegram('pic.png')
 
-    
     # 初始化 DDDDORC 实例
     ocr = ddddocr.DdddOcr()
     # 识别验证码图片中的字符
