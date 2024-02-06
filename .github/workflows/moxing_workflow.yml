@@ -20,7 +20,7 @@ jobs:
       uses: actions/checkout@v3
 
     - name: Set up Python
-      uses: actions/setup-python@v3
+      uses: actions/setup-python@v2
       with:
         python-version: '3.9'
     - name: 'Install requirements'
@@ -31,11 +31,13 @@ jobs:
         pip install Pillow==9.5.0
         pip install selenium
 
-    - name: Prepare chromedriver
-      uses: nanasess/setup-chromedriver@v2
-      with:
-        # Optional: do not specify to match Chrome's version
-        chromedriver-version: '119.0.6045.105'
+    - name: Install Chromedriver
+      run: |
+        CHROMEDRIVER_VERSION=$(curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE)
+        wget https://chromedriver.storage.googleapis.com/${CHROMEDRIVER_VERSION}/chromedriver_linux64.zip
+        unzip chromedriver_linux64.zip
+        sudo mv chromedriver /usr/local/bin/chromedriver
+        sudo chmod +x /usr/local/bin/chromedriver
     - run: |
         export DISPLAY=:99
         chromedriver --url-base=/wd/hub &
