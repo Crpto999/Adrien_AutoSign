@@ -34,6 +34,7 @@ def get_captcha(driver):
     result = ocr.classification(img_bytes)
     return result
 
+
 def login(driver):
     try:
         # 输入用户名和密码
