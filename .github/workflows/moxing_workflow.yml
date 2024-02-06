@@ -36,8 +36,9 @@ jobs:
         CHROMEDRIVER_VERSION="121.0.6167.85"
         wget -N "https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/${CHROMEDRIVER_VERSION}/linux64/chromedriver-linux64.zip" -P /home/runner/
         unzip /home/runner/chromedriver-linux64.zip -d /home/runner/
-        sudo mv /home/runner/chromedriver /usr/local/bin/chromedriver
+        sudo mv /home/runner/chromedriver-linux64/chromedriver /usr/local/bin/chromedriver
         sudo chmod +x /usr/local/bin/chromedriver
+
     - run: |
         export DISPLAY=:99
         chromedriver --url-base=/wd/hub &
