@@ -1,4 +1,5 @@
 # checkin_adrien
-自用
+如何获取阿里云盘TOKEN？
+https://alist.nn.ci/zh/guide/drivers/aliyundrive.html
 
 
