@@ -23,9 +23,9 @@ def sign_in(email, passwd):
         headers = {
             'user-agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1'}
         with requests.Session() as session:
-            session.post(f'https://ikuuu.me/auth/login', headers=headers, data=body)
+            session.post(f'https://ikuuu.pw/auth/login', headers=headers, data=body)
         
-            homepage_response = session.get('https://ikuuu.me/user')
+            homepage_response = session.get('https://ikuuu.pw/user')
             page_content = homepage_response.text
             tree = html.fromstring(page_content)
             # 当月剩余
@@ -65,7 +65,7 @@ def sign_in(email, passwd):
                     member = re.sub(r'\s+', ' ', member)
                 expire ="免费版: 2099-12-30 过期"
         
-            ss = session.post(f'https://ikuuu.me/user/checkin').json()
+            ss = session.post(f'https://ikuuu.pw/user/checkin').json()
             if 'msg' in ss:
                 sr = ss['msg']
         
