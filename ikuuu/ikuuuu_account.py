@@ -7,12 +7,14 @@ from lxml import html
 def main():
     r = 1
     oy = ql_env()
+    print(oy)
     messages = []  # Create an empty list to collect messages
     for i in oy:
         print("------------正在执行第" + str(r) + "个账号----------------")
         email = i.split('&')[0]
         passwd = i.split('&')[1]
         result = sign_in(email, passwd)
+        print(email,passwd)
         messages.append(f"账户：{email}\n{result}")  # Add the message to the list
         r += 1
     send_to_telegram(messages)  # Pass the list of messages to send_to_telegram
