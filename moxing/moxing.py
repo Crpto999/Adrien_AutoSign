@@ -53,6 +53,7 @@ def login(driver):
         captcha = get_captcha(driver)
         captcha_element.clear()
         captcha_element.send_keys(captcha)
+        print(f'验证码识别为：{captcha}')
         # 登录按钮元素
         login_button = WebDriverWait(driver, 15).until(
             EC.presence_of_element_located((By.NAME, "loginsubmit"))
