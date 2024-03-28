@@ -13,7 +13,6 @@ def save_img(src, img_path):
     with open(img_path, "wb") as f:
         f.write(img.content)
 
-
 def get_captcha(driver):
     driver.save_screenshot('pic.png')
     pic = Image.open('pic.png')
